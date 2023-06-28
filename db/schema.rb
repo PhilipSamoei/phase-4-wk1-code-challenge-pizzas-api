@@ -20,13 +20,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_092432) do
   end
 
   create_table "restaurant_pizzas", force: :cascade do |t|
-    t.integer "restaurantr_id", null: false
+    t.integer "restaurant_id", null: false
     t.integer "pizza_id", null: false
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pizza_id"], name: "index_restaurant_pizzas_on_pizza_id"
-    t.index ["restaurantr_id"], name: "index_restaurant_pizzas_on_restaurantr_id"
+    t.index ["restaurant_id"], name: "index_restaurant_pizzas_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -37,5 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_092432) do
   end
 
   add_foreign_key "restaurant_pizzas", "pizzas"
-  add_foreign_key "restaurant_pizzas", "restaurantrs"
+  add_foreign_key "restaurant_pizzas", "restaurants"
 end
